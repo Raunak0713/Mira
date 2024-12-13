@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets : ["latin"] })
+import { dark } from '@clerk/themes'
 
 export const metadata: Metadata = {
   title: "Mira ✨",
@@ -17,7 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme : dark
+      }}
+    >
       <html lang="en">
         <body className={`${inter.className}`}>
           <ThemeProvider attribute={'class'} defaultTheme="dark">
