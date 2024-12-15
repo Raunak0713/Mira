@@ -81,3 +81,38 @@ body {
     @apply font-extrabold bg-gradient-to-br from-black/5 to-white/100 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
   }
 }
+
+.imageWrapper img {
+  padding: 0;
+  margin: 0;
+}
+
+.sparkle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.7) 0%, 
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 
+    0 0 6px 2px rgba(255, 255, 255, 0.2),
+    inset 0 0 3px 1px rgba(255, 255, 255, 0.1);
+  animation: elegantSparkle 0.5s ease-out forwards;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+@keyframes elegantSparkle {
+  0% {
+    opacity: 1;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}

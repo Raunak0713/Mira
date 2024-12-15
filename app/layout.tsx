@@ -29,7 +29,7 @@ export default function RootLayout({
             <Header />
             <main className="min-h-screen">{children}</main>
             <footer className= "border-t-2 py-12"> {/* Color */}
-              <div className="container mx-auto text-center px-4">
+              <div className="container mx-auto text-center px-4 gradient-title">
                 Made with ❤️ By Raunak
               </div>
             </footer>

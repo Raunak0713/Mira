@@ -14,8 +14,8 @@ const Header = () => {
           <Image
             src={'/logo.png'}
             alt="Mira Logo"
-            height={80} // Set a larger height
-            width={180} // Set a larger width
+            height={80}
+            width={180}
             className="object-contain"
           />
         </Link>
