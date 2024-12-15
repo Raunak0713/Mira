@@ -1,11 +1,12 @@
 import React from 'react'
 
 interface OrganizationPageProps {
-  params : { orgId : string } 
+  params: { orgId: string }
 }
 
-const OrganizationPage = ({ params } : OrganizationPageProps ) => {
-  const { orgId } = params 
+const OrganizationPage = async ({ params }: OrganizationPageProps) => {
+  const { orgId } = await params; // Awaiting the params
+
   return (
     <div>{orgId}</div>
   )
