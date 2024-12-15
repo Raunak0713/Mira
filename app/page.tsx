@@ -104,10 +104,10 @@ export default function Home() {
           <h3 className="text-3xl font-bold mb-12 text-center gradient-title">Key Features</h3>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="bg-[#F5F5F5]">
+              <Card key={index} className="bg-black/80">
                 <CardContent className="pt-6">
-                  <feature.icon className="h-12 w-12 mb-4 text-black" />
-                  <h4 className="text-xl font-semibold mb-2 text-black">
+                  <feature.icon className="h-12 w-12 mb-4 text-[#F5F5F5]" />
+                  <h4 className="text-xl font-semibold mb-2 text-[#F5F5F5]">
                     {feature.title}
                   </h4>
                   <p className="text-gray-500">{feature.description}</p>
