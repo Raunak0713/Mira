@@ -1,10 +1,16 @@
-import { SignUp } from '@clerk/nextjs'
-import React from 'react'
+'use client';
 
-const SignUpPage = () => {
-  return (
-    <SignUp />
-  )
-}
+import { SignUp } from '@clerk/nextjs';
+import React, { useEffect } from 'react';
 
-export default SignUpPage
+const SignInPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0); // Ensure scroll resets on hydration
+    }
+  }, []);
+
+  return <SignUp />;
+};
+
+export default SignInPage;

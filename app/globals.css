@@ -70,3 +70,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.dotted-background {
+  background-image: radial-gradient(rgba(245, 245, 245, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+@layer utilities {
+  .gradient-title {
+    @apply font-extrabold bg-gradient-to-br from-black/5 to-white/100 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
+  }
+}
