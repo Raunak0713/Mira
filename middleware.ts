@@ -21,5 +21,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 }
-
-//gdge
