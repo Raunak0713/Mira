@@ -1,11 +1,10 @@
 import React from 'react'
 
-interface OrganizationPageProps {
-  params: { orgId: string }
-}
+type Params = Promise<{ orgId : string }>
 
-const OrganizationPage = async ({ params }: OrganizationPageProps) => {
-  const { orgId } = await params; // Awaiting the params
+const OrganizationPage = async ( props : { params : Params }) => {
+  const params = await props.params;
+  const orgId = params.orgId
 
   return (
     <div>{orgId}</div>
