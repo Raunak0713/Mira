@@ -1,12 +1,20 @@
 import { PrismaClient } from '@prisma/client';
 
 declare global {
-  // Explicitly extend globalThis to include the 'prisma' property
   var prisma: PrismaClient | undefined;
 }
 
-export const prisma = globalThis.prisma || new PrismaClient();
+let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === 'development') {
-  globalThis.prisma = prisma;
+  // Only in development, we assign to globalThis to prevent creating multiple instances
+  if (!globalThis.prisma) {
+    globalThis.prisma = new PrismaClient();
+  }
+  prisma = globalThis.prisma;
+} else {
+  // In production, directly create a new Prisma client instance
+  prisma = new PrismaClient();
 }
+
+export const db = prisma;
