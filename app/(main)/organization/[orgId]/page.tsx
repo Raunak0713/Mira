@@ -1,17 +1,16 @@
 import { getOrganization } from '@/actions/organization';
 import React from 'react'
 
-interface OrganizationPageProps {
-  params: { orgId: string }
-}
+type OrganizationPageProps = Promise<{ orgId : string }>
 
-const OrganizationPage = async ({ params }: { params: OrganizationPageProps['params'] }) => {
-  const { orgId } = params;
+const OrganizationPage = async ( props : { params : OrganizationPageProps }) => {
+  const params = await props.params;
+  const orgId = params.orgId
 
-  const organization = await getOrganization({ slug: orgId });
+  const organization = await getOrganization({slug : orgId})
 
-  if (!organization) {
-    return (
+  if(!organization){
+    return(
       <div>Organization Not Found</div>
     )
   }
