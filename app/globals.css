@@ -116,3 +116,60 @@ body {
     transform: scale(1.5);
   }
 }
+
+
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Thinner border */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  background-image: conic-gradient(
+    from var(--angle),
+    rgba(255, 255, 255, 0.9), /* Bright white */
+    rgba(255, 255, 255, 0.7), /* Slightly faded white */
+    rgba(255, 255, 255, 0.9), /* Bright white */
+    rgba(0, 0, 0, 0.2) /* Soft black for contrast */
+  );
+  z-index: -2;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #1c1f2b; /* Match your card background */
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.animated-border:hover::before {
+  opacity: 1; /* Show the border on hover */
+  animation: spin 3s linear infinite; /* Start the animation */
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

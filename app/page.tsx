@@ -49,7 +49,7 @@ const features = [
   {
     title: "Powerful Sprint Planning",
     description:
-      "Plan and manage sprints effectively, ensuring your team stays focused on delivering value.",
+      "Plan and manage sprints effectively, ensuring that your team stays focused on delivering value.",
     icon: Calendar,
   },
   {
@@ -99,24 +99,30 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className=" py-20 px-5">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold mb-12 text-center gradient-title">Key Features</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="bg-black/80">
-                <CardContent className="pt-6">
-                  <feature.icon className="h-12 w-12 mb-4 text-[#F5F5F5]" />
-                  <h4 className="text-xl font-semibold mb-2 text-[#F5F5F5]">
-                    {feature.title}
-                  </h4>
-                  <p className="text-gray-500">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <section id="features" className="py-20 px-5">
+  <div className="container mx-auto">
+    <h3 className="text-3xl font-bold mb-12 text-center gradient-title">Key Features</h3>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div key={index} className="animated-border p-[2px] rounded-lg">
+          <Card className="bg-black/80 rounded-lg">
+            <CardContent className="relative pt-6">
+              <feature.icon className="h-12 w-12 mb-4 text-[#F5F5F5]" />
+              <h4 className="text-xl font-semibold mb-2 text-[#F5F5F5]">
+                {feature.title}
+              </h4>
+              <p className="text-gray-500">{feature.description}</p>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* FAQ Section */}
       <section className=" py-20 px-5">
@@ -128,7 +134,7 @@ export default function Home() {
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="gradient-title">{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionContent className="text-muted-foreground/60">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
