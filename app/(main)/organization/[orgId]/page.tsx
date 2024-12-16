@@ -5,7 +5,7 @@ interface OrganizationPageProps {
   params: { orgId: string }
 }
 
-const OrganizationPage = async ({ params }: OrganizationPageProps) => {
+const OrganizationPage = async ({ params }: { params: OrganizationPageProps['params'] }) => {
   const { orgId } = params;
 
   const organization = await getOrganization({ slug: orgId });
