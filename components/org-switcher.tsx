@@ -1,14 +1,18 @@
-"use client"
-import { OrganizationSwitcher, SignedIn, useOrganization, useUser } from '@clerk/nextjs'
-import { usePathname } from 'next/navigation';
-import React from 'react'
+"use client";
+import { OrganizationSwitcher, SignedIn, useOrganization, useUser } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
+import React from "react";
 
-const OrgSwitcher = () => {
-  const { isLoaded : isOrgLoaded } = useOrganization();
-  const { isLoaded : isUserLoaded } = useUser();
+interface OrgSwitcherProps {
+  appearance?: Record<string, any>; // Define the type for appearance prop
+}
+
+export const OrgSwitcher = ({ appearance }: OrgSwitcherProps) => {
+  const { isLoaded: isOrgLoaded } = useOrganization();
+  const { isLoaded: isUserLoaded } = useUser();
   const pathname = usePathname();
 
-  if(!isOrgLoaded || !isUserLoaded){
+  if (!isOrgLoaded || !isUserLoaded) {
     return null;
   }
 
@@ -24,16 +28,17 @@ const OrgSwitcher = () => {
           afterSelectOrganizationUrl="/organization/:slug"
           createOrganizationUrl="/onboarding"
           appearance={{
+            ...appearance, // Merge the passed appearance prop
             elements: {
               organizationSwitcherTrigger:
                 "border border-gray-300 rounded-md px-5 py-2",
               organizationSwitcherTriggerIcon: "text-white",
+              ...(appearance?.elements || {}), // Allow further overrides
             },
           }}
         />
       </SignedIn>
     </div>
-  )
-}
+  );
+};
 
-export default OrgSwitcher 

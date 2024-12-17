@@ -1,5 +1,5 @@
 import { getOrganization } from '@/actions/organization';
-import OrgSwitcher from '@/components/org-switcher';
+import { OrgSwitcher } from '@/components/org-switcher';
 import React from 'react';
 
 type OrganizationPageProps = Promise<{ orgId : string }>

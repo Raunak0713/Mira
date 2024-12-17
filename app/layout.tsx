@@ -6,6 +6,7 @@ import Header from "@/components/header";
 import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets : ["latin"] })
 import { dark } from '@clerk/themes'
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Mira ✨",
@@ -28,6 +29,7 @@ export default function RootLayout({
           <ThemeProvider attribute={'class'} defaultTheme="dark">
             <Header />
             <main className="min-h-screen">{children}</main>
+            <Toaster richColors/>
             <footer className= "border-t-2 py-12"> {/* Color */}
               <div className="container mx-auto text-center px-4 gradient-title">
                 Made with ❤️ By Raunak
